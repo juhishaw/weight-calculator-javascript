@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style>
+        body {
+            margin-top: 70px;
+            background: #333;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-12">
+                <h1 class="display-4 text-center mb-3">Weight Conveter</h1>
+                <form>
+                    <div class="form-group">
+                        <input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
+                        <input id="kiloInput" type="number" class="form-control form-control-lg" placeholder="Enter Kilograms...">
+                        <input id="gramInput" type="number" class="form-control form-control-lg" placeholder="Enter Grams...">
+                        <input id="ozInput" type="number" class="form-control form-control-lg" placeholder="Enter Ounces...">
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card card-primary mb-2">
+                        <div class="card-block">
+                            <h4>Grams:</h4>
+                            <div id="gramsOutput"></div>
+                        </div>
+                    </div>
+                    <div class="card card-success mb-2">
+                        <div class="card-block">
+                            <h4>Kilograms:</h4>
+                            <div id="kgOutput"></div>
+                        </div>
+                    </div>
+                    <div class="card card-danger mb-2">
+                        <div class="card-block">
+                            <h4>Ounces:</h4>
+                            <div id="ozOutput"></div>
+                        </div>
+                    </div>
+                    <div class="card card-warning mb-2">
+                        <div class="card-block">
+                            <h4>Pounds:</h4>
+                            <div id="poundsOutput"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //pounds...
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('lbsInput').addEventListener('input', function(e) {
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('kiloInput').style.visibility = 'hidden';
+            document.getElementById('gramInput').style.visibility = 'hidden';
+            document.getElementById('ozInput').style.visibility = 'hidden';
+            //console.log(123); 
+            let lbs = e.target.value;
+            document.getElementById('poundsOutput').innerHTML = lbs / 1;
+            document.getElementById('gramsOutput').innerHTML = lbs / 0.0022046;
+            document.getElementById('kgOutput').innerHTML = lbs / 2.2046;
+            document.getElementById('ozOutput').innerHTML = lbs * 16;
+        });
+
+        //Kilograms
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('kiloInput').addEventListener('input', function(e) {
+            document.getElementById('lbsInput').style.visibility = 'hidden';
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('gramInput').style.visibility = 'hidden';
+            document.getElementById('ozInput').style.visibility = 'hidden';
+            //console.log(123); 
+            let kilo = e.target.value;
+             document.getElementById('kiloOutput').innerHTML = kilo / 1;
+            document.getElementById('gramsOutput').innerHTML = kilo * 1000;
+            document.getElementById('poundsOutput').innerHTML = kilo * 2.20462;
+            document.getElementById('ozOutput').innerHTML = kilo * 35.2574;
+        });
+
+        //Grams
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('gramInput').addEventListener('input', function(e) {
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('kiloInput').style.visibility = 'hidden';
+            document.getElementById('lbsInput').style.visibility = 'hidden';
+            document.getElementById('ozInput').style.visibility = 'hidden';
+            //console.log(123); 
+            let grams = e.target.value;
+             document.getElementById('gramsOutput').innerHTML = grams / 1;
+            document.getElementById('poundsOutput').innerHTML = grams * 0.00220462;
+            document.getElementById('kgOutput').innerHTML = grams * 0.001;
+            document.getElementById('ozOutput').innerHTML = grams * 0.035274;
+        });
+
+        //Ounces
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('ozInput').addEventListener('input', function(e) {
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('kiloInput').style.visibility = 'hidden';
+            document.getElementById('gramInput').style.visibility = 'hidden';
+            document.getElementById('lbsInput').style.visibility = 'hidden';
+            //console.log(123); 
+            let oz = e.target.value;
+             document.getElementById('ozOutput').innerHTML = oz / 1;
+            document.getElementById('gramsOutput').innerHTML = oz * 28.3495;
+            document.getElementById('kgOutput').innerHTML = oz * 0.0283495;
+            document.getElementById('poundsOutput').innerHTML = oz * 0.0625;
+        });
+
+    </script>
+</body>
+
+</html>
